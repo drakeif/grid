@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+$accent: #F0650D;
+$txt: #333333;
+$dark: #293A43;
+$light: #EDEDED;
+$gray: #4B5A65;
+$white: #ffffff;
+$input: #556C77;
+$footer: #1B2429;
+$f1: #4E5355;
+$f2: #707476;
+$gutter: 20px;
+@mixin point($width) {
+    @media only screen and (max-width: $width + 'px') {@content;}
+}
+@mixin footer {
+    color: $f1;
+    font-weight: 400;
+}
+@mixin footer-span ($col, $fW) {
+    color: $col;
+    font-weight: $fW;
+}
+html {
+    box-sizing: border-box;
+}
+*,*::before,*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+body {
+    position: relative;
+    min-width: 320px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 1;
+}
+img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+.container {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+
+}
+//HEADER
+.header {
+    position: relative;
+    min-height: 100vh;
+    background: url("../img/intro.jpg") no-repeat center;
+    background-size: cover;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    &__content {
+        padding: 60px $gutter;
+        z-index: 1;
+        color: $white;
+        text-align: center;
+        h1 {
+            font-size: 60px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            @include point(768) {
+                font-size: 40px;
+            }
+            @include point(500) {
+                font-size: 30px;
+            }
+        }
+    }
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $dark;
+        opacity: .8;
+        width: 100%;
+        height: 100%;
+    }
+    &__btn {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 200px);
+        justify-content: center;
+        gap: $gutter;
+    }
+    &__button {
+        display: inline-block;
+        width: 200px;
+        height: auto;
+
+        background: $gray;
+        color: $white;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        line-height: 50px;
+        text-decoration: none;
+        letter-spacing: 3px;
+
+        transition: .2s linear;
+        &:hover {
+            background: $white;
+            color: $txt;
+        }   
+    }
+}
+.accent__btn {
+    background: $accent;
+    transition: .2s linear;
+    &:hover {
+        color: $white;
+        background: transparent;
+        outline: 1.5px solid $accent;
+    } 
+}
+//IMAGE GRID
+.image {
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    @include point(768) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    &__item {
+        position: relative;
+        background-image: url("../img/img-1.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 32vh;
+
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        a {
+            z-index: 1;
+            text-align: center;
+            text-decoration: none;
+            color: $white;
+            font-size: 22px;
+            font-weight: 500;
+
+            transition: .2s linear;
+        }
+        &:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        &:nth-child(2) {
+            background-image: url("../img/img-2.jpg");
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        &:nth-child(3) {
+            background-image: url("../img/img-3.jpg");
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        &:nth-child(4) {
+            background-image: url("../img/img-4.jpg");
+            grid-column: span 1;
+            grid-row: span 1;
+            @include point(768) {
+                grid-column: span 2;
+            }
+        }
+        &:nth-child(5) {
+            background-image: url("../img/img-5.jpg");
+            grid-column: span 2;
+            grid-row: span 1;
+            @include point(768) {
+                grid-column: span 1;
+            }
+        }
+        &:nth-child(6) {
+            background-image: url("../img/img-6.jpg");
+            min-height: 630px;
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        &:nth-child(7) {
+            background-image: url("../img/img-7.jpg");
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        &:nth-child(8) {
+            background-image: url("../img/img-8.jpg");
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        &:nth-child(9) {
+            background-image: url("../img/img-9.jpg");
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        &::after {
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: $dark;
+            opacity: .4;
+
+            transition: .2s linear;
+        }
+        &:hover {
+            a {
+                color: $accent;
+            }
+            &::after
+            {
+                opacity: .2;
+            }
+        }
+    }
+}
+// ARE YOU READY BLOCK
+.ready {
+    padding: 100px 0;
+    background: $light;
+    @include point(768) {
+        padding: 50px 0;
+    }
+    @include point(768) {
+        padding: 25px 0;
+    }
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include point(768) {
+            grid-template-columns: auto;
+            justify-items: center;
+        }
+        &_block {
+            color: $txt;
+            h2 {
+                font-size: 34px;
+                font-weight: 400;
+                margin-bottom: 40px;
+                @include point(768) {
+                    font-size: 28px;
+                }
+                @include point(500) {
+                    font-size: 22px;
+                }
+            } 
+            p {
+                max-width: 500px;
+                font-size: 18px;
+                margin-bottom: 20px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                @include point(768) {
+                    font-size: 14px;
+                }
+                @include point(500) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+// INPUT
+.input {
+    background: $dark;
+    min-height: 100px;
+    display: grid;
+    align-items: center;
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-content: space-between;
+        @include point(1200) {
+            grid-template-columns: repeat(2, auto);
+            justify-content: center;
+            gap: 5px;
+        }
+        @include point(650) {
+            grid-template-columns: auto;
+        }
+        input {
+            display: inline-block;
+            min-width: 300px;
+            padding: 0 10px;
+            line-height: 50px;
+            border: 0;
+            outline: 0;
+            font-size: 16px;
+            color: $txt;
+            &::placeholder {
+                font-size: 16px;
+                color: $input;
+            }
+            @include point(650) {
+                min-width: 200px;
+            }
+        }
+        a {
+            display: inline-block;
+            min-width: 200px;
+            height: auto;
+            color: $white;
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+            letter-spacing: 3px;
+            background: $accent;
+            transition: .2s linear;
+            &:hover {
+                color: $white;
+                background: transparent;
+                outline: 1.5px solid $accent;
+            } 
+            @include point(1140) {
+                min-width: 300px;
+            }
+            @include point(650) {
+                min-width: 200px;
+            }
+        }
+    }
+}
+// CARDS
+.cards {
+    padding: 100px 0;
+    color: $txt;
+    @include point(768) {
+        padding: 50px 0;
+    }
+    @include point(768) {
+        padding: 25px 0;
+    }
+    &__title {
+        font-size: 34px;
+        font-weight: 400;
+        margin-bottom: 60px;
+        @include point(768) {
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+        @include point(500) {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    }
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        @include point(768) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &_item {
+            background: $light;
+            height: 550px;
+            cursor: pointer;
+            overflow: hidden;
+            img {
+                margin-bottom: 35px;
+                transition: .2s ease-in-out;
+                @include point(500) {
+                    margin-bottom: 20px;
+                }
+                @include point(500) {
+                    margin-bottom: 10px;
+                }
+            }
+            h3 {
+                padding: 0 40px;
+                font-size: 18px;
+                text-align: center;
+                font-weight: 500;
+                margin-bottom: 30px;
+                @include point(500) {
+                    font-size: 16px;
+                    margin-bottom: 20px;
+                }
+                @include point(500) {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+            }
+            p {
+                padding: 0 20px 5px 20px;
+                text-align: center;
+                @include point(500) {
+                    font-size: 12px;
+                }
+                @include point(500) {
+                    font-size: 10px;
+                }
+            }
+            &:nth-child(1) {
+                grid-column: span 1;
+            }
+            &:nth-child(2) {
+                grid-column: span 1;
+            }
+            &:nth-child(3) {
+                grid-column: span 2;
+            }
+            &:nth-child(4) {
+                grid-column: span 2;
+                @include point(768){
+                   grid-row: span 1 / 5;
+                }
+            }
+            &:nth-child(5) {
+                grid-column: span 1;
+            }
+            &:nth-child(6) {
+                grid-column: span 1;
+            }
+            &:hover img {
+                transform: scale(1.05);
+            }
+            @include point(500) {
+                height: 390px;
+            }
+        }
+    }
+}
+//DOWNLOAD
+.download {
+    padding: 25px 0;
+    @include point(500) {
+        padding: 5px 0;
+    }
+       text-align: center;
+    a {
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+//FOOTER
+.footer {
+    background: $footer;
+    padding: 25px 0;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    &__content {
+        width: 118px;
+        height: 100px;
+
+        display: grid;
+        align-content: space-between;
+        text-align: center;
+        h4 {
+            @include footer;
+            span {
+               @include footer-span ($f2, 500);
+            }
+        }
+        div {
+            color: $f1;
+        }
+    }
+}
